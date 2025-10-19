@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&family=Boldonse&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&family=BBH+Sans+Hegarty&family=Boldonse&display=swap');
+
+:root {
+    --accent: #2b8cff;
+    --muted: #9aa3b2;
+    --card: #ffffff;
+    --shadow: 0 18px 50px rgba(39,40,44,0.08);
+    --radius: 24px;
+    --gap: 20px;
+    --maxw: 960px;
+    --pad: 40px;
+    --bg-top: #f8fdff;
+    --bg-bottom: #f2fbf8;
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #2b2f36;
+    box-sizing: border-box;
+}
+* {
+    box-sizing: inherit;
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-image:
+    radial-gradient(circle at 10% 10%, rgba(43,140,255,0.03) 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 40%, rgba(43,140,255,0.02) 0 2px, transparent 3px),
+    linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+    background-size: auto, auto, 100% 100%;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 6px;
+    width: 100%;
+}
+.heading {
+    font-family: 'BBH Sans Bartle', 'Boldonse', Arial, sans-serif;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 4px;
+    font-size: 45px;
+    margin: 0 0 0 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+.dashboard {
+    width: 100%;
+    max-width: var(--maxw);
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: var(--pad);
+    box-shadow: var(--shadow);
+    border-top: 6px solid rgba(43,140,255,0.06);
+    margin: 18px 0;
+}
+@media (min-width: 800px) {
+    #data-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--gap);
+        align-items: stretch;
+        justify-items: stretch;
+    }
+    .card {
+        width: 100%;
+        margin: 0;
+    }
+}
+#data-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap);
+    align-items: stretch;
+    justify-items: stretch;
+}
+.card {
+    width: 100%;
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px 30px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+.card:hover {
+    transform: scale(1.01);
+}
+.info {
+    flex: 1;
+}
+.info p {
+    margin: 6px 0;
+    font-size: 15px;
+}
+.view-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+.view-btn:hover {
+    background: #0056b3;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 80%;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.13);
+    animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.close-btn {
+    background: #ff4b4b;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+.close-btn:hover {
+    background: #c53030;
+}
+@media (max-width: 980px) {
+    :root {
+        --maxw: 640px;
+    }
+    .heading {
+        font-size: 38px;
+    }
+    .dashboard {
+        padding: 28px;
+    }
+}
+@media (max-width: 760px) {
+    .dashboard {
+        margin: 0 16px;
+        padding: 18px;
+        border-radius: 18px;
+    }
+    .heading {
+        font-size: 28px;
+    }
+    .card {
+        width: 100%;
+        padding: 14px 10px;
+    }
+}
+@media (max-width: 420px) {
+    .dashboard {
+        padding: 10px;
+        border-radius: 14px;
+    }
+    .heading {
+        font-size: 20px;
+    }
+    .card {
+        padding: 8px 4px;
+    }
+}
